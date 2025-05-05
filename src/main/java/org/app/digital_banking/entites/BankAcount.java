@@ -24,7 +24,7 @@ public abstract class BankAcount {
     @ManyToOne
     private Customer customer;
 
-    @OneToMany(mappedBy =  "bankAccount")
+    @OneToMany(mappedBy =  "bankAcount")
     private List<Operation> operations;
 
 }
