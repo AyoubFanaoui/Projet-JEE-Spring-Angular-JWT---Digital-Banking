@@ -1,13 +1,11 @@
 package org.app.digital_banking.entites;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.util.*;
 
 import org.springframework.boot.autoconfigure.web.WebProperties;
 
@@ -20,6 +18,9 @@ public class Customer {
     private Long id;
     private String name;
     private String email;
+
+    @OneToMany(mappedBy = "customer")
+    private List<BankAcount> bankAccounts;
 
 
     public void setId(Long id) {

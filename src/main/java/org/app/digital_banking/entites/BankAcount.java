@@ -9,6 +9,8 @@ import java.util.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "TYPE", length = 4)
 public abstract class BankAcount {
  @Id
     private int id;
@@ -20,7 +22,6 @@ public abstract class BankAcount {
     private String currency;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id")
     private Customer customer;
 
     @OneToMany(mappedBy =  "bankAccount")
